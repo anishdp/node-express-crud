@@ -14,9 +14,15 @@ const getTutorial = (req, res) => {
   });
 };
 
-const createTutorial = (req, res) => {};
-const updateTutorial = (req, res) => {};
-const deleteTutorial = (req, res) => {};
+const createTutorial = (req, res) => {
+  res.status(200).json({ status: 200, message: "Success" });
+};
+const updateTutorial = (req, res) => {
+  res.status(200).json({ status: 200, message: "Success" });
+};
+const deleteTutorial = (req, res) => {
+  res.status(200).json({ status: 200, message: "Success" });
+};
 
 module.exports = {
   getTutorials,

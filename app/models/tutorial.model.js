@@ -24,7 +24,7 @@ model.getAllTutorials = (result) => {
 };
 
 model.getTutorial = (id, result) => {
-  conn.query("SELECT * FROM ?? WHERE id= ?", [table, id], (err, res) => {
+  conn.query("SELECT * FROM ?? WHERE id = ?", [table, id], (err, res) => {
     if (err) {
       result(null, err);
     } else {
@@ -47,6 +47,17 @@ model.createTutorial = (data, result) => {
 
 model.updateTutorial = (data, result) => {
   conn.query("UPDATE ?? SET ?", [table, data], (err, result) => {
+    if (err) {
+      result(null, err);
+    } else {
+      result(null, res);
+    }
+  });
+  conn.end();
+};
+
+model.deleteTutorial = (id, result) => {
+  conn.query("DELETE FROM ?? WHERE id = ?", [table, id], (err, result) => {
     if (err) {
       result(null, err);
     } else {
