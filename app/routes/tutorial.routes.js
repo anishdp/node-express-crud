@@ -3,13 +3,13 @@ const router = express.Router();
 
 const {
   getTutorials,
-  addTutorial,
   getTutorial,
+  createTutorial,
   updateTutorial,
   deleteTutorial,
 } = require("../controllers/tutorial.controller");
 
-router.route("/").get(getTutorials).post(addTutorial);
+router.route("/").get(getTutorials).post(createTutorial);
 router
   .route("/:id")
   .get(getTutorial)

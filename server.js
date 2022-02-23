@@ -6,7 +6,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
-app.use(express.json);
+app.use(express.json());
 app.use("/api/tutorials", tutorialRoutes);
 
 app.all("*", (req, res) => {
@@ -14,5 +14,5 @@ app.all("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is listening to port ${port}...`);
+  console.log(`Server is listening to port ${port} ...`);
 });

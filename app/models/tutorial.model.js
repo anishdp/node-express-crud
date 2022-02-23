@@ -15,12 +15,13 @@ const table = "tutorials";
 model.getAllTutorials = (result) => {
   conn.query("SELECT * FROM ?? ", table, (err, res) => {
     if (err) {
+      console.log(err);
       result(null, err);
     } else {
+      console.log(res);
       result(null, res);
     }
   });
-  conn.end();
 };
 
 model.getTutorial = (id, result) => {
@@ -31,40 +32,37 @@ model.getTutorial = (id, result) => {
       result(null, res);
     }
   });
-  conn.end();
 };
 
 model.createTutorial = (data, result) => {
-  conn.query("INSERT INTO ?? SET ?", [table, data], (err, result) => {
+  conn.query("INSERT INTO ?? SET ?", [table, data], (err, res) => {
     if (err) {
       result(null, err);
     } else {
-      result(null, res);
+      let returnData = { id: res.insertId };
+      result(null, returnData);
     }
   });
-  conn.end();
 };
 
-model.updateTutorial = (data, result) => {
-  conn.query("UPDATE ?? SET ?", [table, data], (err, result) => {
+model.updateTutorial = (id, data, result) => {
+  conn.query("UPDATE ?? SET ? WHERE id=?", [table, data, id], (err, res) => {
     if (err) {
       result(null, err);
     } else {
       result(null, res);
     }
   });
-  conn.end();
 };
 
 model.deleteTutorial = (id, result) => {
-  conn.query("DELETE FROM ?? WHERE id = ?", [table, id], (err, result) => {
+  conn.query("DELETE FROM ?? WHERE id=?", [table, id], (err, res) => {
     if (err) {
       result(null, err);
     } else {
       result(null, res);
     }
   });
-  conn.end();
 };
 
 module.exports = model;
