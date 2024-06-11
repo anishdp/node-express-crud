@@ -5,6 +5,8 @@ const getTutorials = (req, res) => {
   model.getAllTutorials((err, result) => {
     console.log(err, result);
     console.log('test')
+    console.log('test2')
+
     if (err)
       return res.status(500).json({
         status: 500,
