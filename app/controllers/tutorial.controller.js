@@ -6,6 +6,8 @@ const getTutorials = (req, res) => {
     console.log(err, result);
     console.log('test')
     console.log('test2')
+    console.log('test3')
+
 
     if (err)
       return res.status(500).json({
